@@ -23,8 +23,10 @@
             formControlName="projectName"
             class="form-control">
         </div>
-        <!-- <span *ngIf="signupForm.get('projectName').errors['required']" class="help-block">This field is required!</span> -->
-        <!-- <span *ngIf="signupForm.get('projectname').errors['projectNameForbidden']" class="help-block">This name is forbidden!</span> -->
+        <span *ngIf="!signupForm.get('projectName').valid && signupForm.get('projectName').touched" class="help-block">
+          <span *ngIf="signupForm.get('projectName').errors['required']" class="help-block">This field is required!</span>
+          <span *ngIf="signupForm.get('projectName').errors['invalidProjectName']" class="help-block">This name is forbidden!</span>
+      </span>
         <div class="form-group">
           <label for="email">email</label>
           <input
@@ -33,8 +35,10 @@
             formControlName="email"
             class="form-control">
         </div>
-        <!-- <span *ngIf="signupForm.get('email').errors['required']" class="help-block">This field is required!</span> -->
-        <!-- <span *ngIf="signupForm.get('email').errors['email']" class="help-block">Wrong email!</span> -->
+        <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">
+          <span *ngIf="signupForm.get('email').errors['required']" class="help-block">This field is required!</span>
+          <span *ngIf="signupForm.get('email').errors['email']" class="help-block">Wrong email!</span>
+        </span>
         <div class="form-group">
           <label for="status">Project status</label>
           <select
